@@ -169,7 +169,7 @@ $task3 = mysqli_query($conn, "SELECT * FROM tasks WHERE task_ke = 3");
                                 <td>
                                     <div class="row-1">
                                         <div class='col d-flex justify-content-center'>
-                                            <a href="index.php?strike_task=<?php echo $row['id']; ?>" class='btn btn-sm btn-light'><i class='fa fa-check'></i> Done </a>
+                                            <a href="index.php?strike_task=<?php echo $row['id']; ?>" class='btn btn-sm btn-light'><i class='fa fa-check' job='complete'></i> Done </a>
                                         </div>
                                     </div>
                                 </td>
