@@ -26,9 +26,17 @@ if (isset($_POST['addTask1']) || isset($_POST['addTask2']) || isset($_POST['addT
 //     mysqli_query($conn, "INSERT INTO tasks (task) VALUES ('$task')");
 //     header('location: index.php');
 // }
+
 // delete task
 if (isset($_GET['del_task'])) {
     $id = $_GET['del_task'];
+    mysqli_query($conn, "DELETE FROM tasks WHERE id=$id");
+    header('location: index.php');
+}
+
+// striketrough task
+if (isset($_GET['strike_task'])) {
+    $id = $_GET['strike_task'];
     mysqli_query($conn, "DELETE FROM tasks WHERE id=$id");
     header('location: index.php');
 }
@@ -41,7 +49,6 @@ $task3 = mysqli_query($conn, "SELECT * FROM tasks WHERE task_ke = 3");
 // die;
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -71,13 +78,11 @@ $task3 = mysqli_query($conn, "SELECT * FROM tasks WHERE task_ke = 3");
                         </span>
                     </div>
                 </form>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>N</th>
-                            <th>Task</th>
-                            <th>Action</th>
-                        </tr>
+                <table class="table table-striped table-hover table-bordered mt-3">
+                    <thead class="table">
+                        <th>No</th>
+                        <th>Task</th>
+                        <th>Action</th>
                     </thead>
                     <tbody>
                         <?php $index1 = 1; ?>
@@ -85,16 +90,21 @@ $task3 = mysqli_query($conn, "SELECT * FROM tasks WHERE task_ke = 3");
                             <tr>
                                 <td><?php echo $index1; ?></td>
                                 <td class="task"><?php echo $row['task']; ?></td>
-                                <td class="delete">
-                                    <a href="index.php?del_task=<?php echo $row['id']; ?>">X</a>
+                                <td>
+                                    <div class="row">
+                                        <div class='col d-flex justify-content-center'>
+                                            <a class='btn btn-sm btn-light'><i class='fa fa-arrow-right'></i> Go Doing </a>
+                                        </div>
+                                        <div class='col d-flex justify-content-center'>
+                                            <a href="index.php?del_task=<?php echo $row['id']; ?>" class='btn btn-sm btn-danger'><i class='fa fa-trash'></i> Delete </a>
+                                        </div>
+                                    </div>
                                 </td>
                             </tr>
                             <?php $index1++; ?>
                         <?php endwhile ?>
-
                     </tbody>
                 </table>
-
             </div>
             <div class="col">
                 <form action="" method="post">
@@ -106,13 +116,11 @@ $task3 = mysqli_query($conn, "SELECT * FROM tasks WHERE task_ke = 3");
                         </span>
                     </div>
                 </form>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>N</th>
-                            <th>Task</th>
-                            <th>Action</th>
-                        </tr>
+                <table class="table table-striped table-hover table-bordered mt-3">
+                    <thead class="table">
+                        <th>No</th>
+                        <th>Task</th>
+                        <th>Action</th>
                     </thead>
                     <tbody>
                         <?php $index2 = 1; ?>
@@ -120,8 +128,15 @@ $task3 = mysqli_query($conn, "SELECT * FROM tasks WHERE task_ke = 3");
                             <tr>
                                 <td><?php echo $index2; ?></td>
                                 <td class="task"><?php echo $row['task']; ?></td>
-                                <td class="delete">
-                                    <a href="index.php?del_task=<?php echo $row['id']; ?>">X</a>
+                                <td>
+                                    <div class="row">
+                                        <div class='col d-flex justify-content-center'>
+                                            <a class='btn btn-sm btn-light'><i class='fa fa-arrow-right'></i> Go Done </a>
+                                        </div>
+                                        <div class='col d-flex justify-content-center'>
+                                            <a href="index.php?del_task=<?php echo $row['id']; ?>" class='btn btn-sm btn-danger'><i class='fa fa-trash'></i> Delete </a>
+                                        </div>
+                                    </div>
                                 </td>
                             </tr>
                             <?php $index2++; ?>
@@ -139,13 +154,11 @@ $task3 = mysqli_query($conn, "SELECT * FROM tasks WHERE task_ke = 3");
                         </span>
                     </div>
                 </form>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>N</th>
-                            <th>Task</th>
-                            <th>Action</th>
-                        </tr>
+                <table class="table table-striped table-hover table-bordered mt-3">
+                    <thead class="table">
+                        <th>No</th>
+                        <th>Task</th>
+                        <th>Action</th>
                     </thead>
                     <tbody>
                         <?php $index3 = 1; ?>
@@ -153,8 +166,12 @@ $task3 = mysqli_query($conn, "SELECT * FROM tasks WHERE task_ke = 3");
                             <tr>
                                 <td><?php echo $index3; ?></td>
                                 <td class="task"><?php echo $row['task']; ?></td>
-                                <td class="delete">
-                                    <a href="index.php?del_task=<?php echo $row['id']; ?>">X</a>
+                                <td>
+                                    <div class="row-1">
+                                        <div class='col d-flex justify-content-center'>
+                                            <a href="index.php?strike_task=<?php echo $row['id']; ?>" class='btn btn-sm btn-light'><i class='fa fa-check'></i> Done </a>
+                                        </div>
+                                    </div>
                                 </td>
                             </tr>
                             <?php $index3++; ?>
