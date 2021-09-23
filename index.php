@@ -27,16 +27,18 @@ if (isset($_POST['addTask1']) || isset($_POST['addTask2']) || isset($_POST['addT
 //     header('location: index.php');
 // }
 
-// delete task
-if (isset($_GET['del_task'])) {
-    $id = $_GET['del_task'];
-    mysqli_query($conn, "DELETE FROM tasks WHERE id=$id");
+// go-dong onclick
+if (isset($_GET['go_doing'])) {
+    $task_ke = $_GET['go_doing'];
+    $queryGoDoing = "UPDATE tasks SET task_ke=2 WHERE task_ke=1 AND";
+    mysqli_query($conn, $queryGoDoing);
     header('location: index.php');
 }
 
-// striketrough task
-if (isset($_GET['strike_task'])) {
-    $id = $_GET['strike_task'];
+
+// delete task
+if (isset($_GET['del_task'])) {
+    $id = $_GET['del_task'];
     mysqli_query($conn, "DELETE FROM tasks WHERE id=$id");
     header('location: index.php');
 }
@@ -93,7 +95,7 @@ $task3 = mysqli_query($conn, "SELECT * FROM tasks WHERE task_ke = 3");
                                 <td>
                                     <div class="row">
                                         <div class='col d-flex justify-content-center'>
-                                            <a class='btn btn-sm btn-light'><i class='fa fa-arrow-right'></i> Go Doing </a>
+                                            <a href="index.php?go_doing=<?php echo $row['task_ke']; ?>" class='btn btn-sm btn-light'><i class='fa fa-arrow-right'></i> Go Doing </a>
                                         </div>
                                         <div class='col d-flex justify-content-center'>
                                             <a href="index.php?del_task=<?php echo $row['id']; ?>" class='btn btn-sm btn-danger'><i class='fa fa-trash'></i> Delete </a>
@@ -167,9 +169,9 @@ $task3 = mysqli_query($conn, "SELECT * FROM tasks WHERE task_ke = 3");
                                 <td><?php echo $index3; ?></td>
                                 <td class="task"><?php echo $row['task']; ?></td>
                                 <td>
-                                    <div class="row-1">
+                                    <div class="row">
                                         <div class='col d-flex justify-content-center'>
-                                            <a href="index.php?strike_task=<?php echo $row['id']; ?>" class='btn btn-sm btn-light'><i class='fa fa-check' job='complete'></i> Done </a>
+                                            <a href="index.php?strike_task=<?php echo $row['id']; ?>" class='btn btn-sm btn-light'><i class='fa fa-check'></i> Done </a>
                                         </div>
                                     </div>
                                 </td>
