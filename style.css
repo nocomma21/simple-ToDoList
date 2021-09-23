@@ -37,10 +37,14 @@ h2.outset {
 }
 
 .btnDel {
-    background-color: rgb(165, 165, 137);
+    background-color: rgb(138, 53, 32);
     color: white;
 }
 
 .btnDel:hover {
     color: white;
+}
+
+.table {
+    background-color: rgba(165, 112, 92, 0.507);
 }
