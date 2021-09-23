@@ -28,10 +28,12 @@ if (isset($_POST['addTask1']) || isset($_POST['addTask2']) || isset($_POST['addT
 // }
 
 // go-dong onclick
-if (isset($_GET['go_doing'])) {
-    $task_ke = $_GET['go_doing'];
-    $queryGoDoing = "UPDATE tasks SET task_ke=2 WHERE task_ke=1 AND";
+if (isset($_POST['go_doing'])) {
+    $task_ke = $_POST['go_doing'];
+    $id = $_POST['go_doing'];
+    $queryGoDoing = "UPDATE tasks SET task_ke=2 WHERE id=$id";
     mysqli_query($conn, $queryGoDoing);
+
     header('location: index.php');
 }
 
@@ -71,7 +73,7 @@ $task3 = mysqli_query($conn, "SELECT * FROM tasks WHERE task_ke = 3");
     <div class="container mt-3 px-3">
         <div class="row">
             <div class="col">
-                <form action="" method="post">
+                <form action="index.php" method="post">
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" name="task" placeholder="Type To Do" required>
                         <input type="hidden" name="task_ke" value="1">
@@ -95,7 +97,9 @@ $task3 = mysqli_query($conn, "SELECT * FROM tasks WHERE task_ke = 3");
                                 <td>
                                     <div class="row">
                                         <div class='col d-flex justify-content-center'>
-                                            <a href="index.php?go_doing=<?php echo $row['task_ke']; ?>" class='btn btn-sm btn-light'><i class='fa fa-arrow-right'></i> Go Doing </a>
+                                            <form action="index.php" method="POST">
+                                                <button class="btn btn-sm btn-light" name="go_doing" value="<?php echo $row['id']; ?>" type="submit"><i class='fa fa-arrow-right'></i> Go Doing </button>
+                                            </form>
                                         </div>
                                         <div class='col d-flex justify-content-center'>
                                             <a href="index.php?del_task=<?php echo $row['id']; ?>" class='btn btn-sm btn-danger'><i class='fa fa-trash'></i> Delete </a>
