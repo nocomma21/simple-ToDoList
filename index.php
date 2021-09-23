@@ -42,6 +42,7 @@ if (isset($_POST['go_doing'])) {
 if (isset($_GET['del_task'])) {
     $id = $_GET['del_task'];
     mysqli_query($conn, "DELETE FROM tasks WHERE id=$id");
+
     header('location: index.php');
 }
 
@@ -102,7 +103,17 @@ $task3 = mysqli_query($conn, "SELECT * FROM tasks WHERE task_ke = 3");
                                             </form>
                                         </div>
                                         <div class='col d-flex justify-content-center'>
-                                            <a href="index.php?del_task=<?php echo $row['id']; ?>" class='btn btn-sm btn-danger'><i class='fa fa-trash'></i> Delete </a>
+                                            <form action="" method="GET">
+                                                <button class='btn btn-sm btn-danger' name="del_task" onclick="return deleteToDo(<?php echo $row['id']; ?>)" type="button" value="del_task"><i class='fa fa-trash'></i> Delete </button>
+                                            </form>
+                                            <script lang="javascript">
+                                                function deleteToDo(gini) {
+                                                    if (confirm("do you want to detele ?")) {
+                                                        window.location.href = 'index.php?del_task=' + gini + '';
+                                                        return true;
+                                                    }
+                                                }
+                                            </script>
                                         </div>
                                     </div>
                                 </td>
