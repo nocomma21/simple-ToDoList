@@ -172,10 +172,10 @@ $task3 = mysqli_query($conn, "SELECT * FROM tasks WHERE task_ke = 3");
                                         </div>
                                         <div class='col d-flex justify-content-center'>
                                             <form action="" method="GET">
-                                                <button class='btn btn-sm btn-danger' name="del_task" onclick="return deleteDone(<?php echo $row['id']; ?>)" type="button" value="del_task"><i class='fa fa-trash'></i> Delete </button>
+                                                <button class='btn btn-sm btn-danger' name="del_task" onclick="return deleteDoing(<?php echo $row['id']; ?>)" type="button" value="del_task"><i class='fa fa-trash'></i> Delete </button>
                                             </form>
                                             <script lang="javascript">
-                                                function deleteDone(id) {
+                                                function deleteDoing(id) {
                                                     if (confirm("do you want to detele ?")) {
                                                         window.location.href = 'index.php?del_task=' + id + '';
                                                         return true;
