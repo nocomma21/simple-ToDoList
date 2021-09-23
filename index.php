@@ -47,6 +47,13 @@ if (isset($_POST['go_done'])) {
     header('location: index.php');
 }
 
+// done_task
+// if(isset($_GET['done_task'])) {
+//     $task_ke = $_GET['done_task'];
+//     $id = $_GET['done_task'];
+//     $queryDoneTask = ""
+// }
+
 
 
 // delete task
@@ -165,10 +172,10 @@ $task3 = mysqli_query($conn, "SELECT * FROM tasks WHERE task_ke = 3");
                                         </div>
                                         <div class='col d-flex justify-content-center'>
                                             <form action="" method="GET">
-                                                <button class='btn btn-sm btn-danger' name="del_task" onclick="return deleteToDo(<?php echo $row['id']; ?>)" type="button" value="del_task"><i class='fa fa-trash'></i> Delete </button>
+                                                <button class='btn btn-sm btn-danger' name="del_task" onclick="return deleteDone(<?php echo $row['id']; ?>)" type="button" value="del_task"><i class='fa fa-trash'></i> Delete </button>
                                             </form>
                                             <script lang="javascript">
-                                                function deleteToDo(id) {
+                                                function deleteDone(id) {
                                                     if (confirm("do you want to detele ?")) {
                                                         window.location.href = 'index.php?del_task=' + id + '';
                                                         return true;
@@ -209,7 +216,17 @@ $task3 = mysqli_query($conn, "SELECT * FROM tasks WHERE task_ke = 3");
                                 <td>
                                     <div class="row">
                                         <div class='col d-flex justify-content-center'>
-                                            <a href="index.php?strike_task=<?php echo $row['id']; ?>" class='btn btn-sm btn-light'><i class='fa fa-check'></i> Done </a>
+                                            <form action="" method="GET">
+                                                <button class='btn btn-sm btn-light' name="del_task" onclick="return deleteDoneTask(<?php echo $row['id']; ?>)" type="button" value="del_task"><i class='fa fa-check'></i> Done </button>
+                                            </form>
+                                            <script lang="javascript">
+                                                function deleteDoneTask(id) {
+                                                    if (confirm("Wow you done it !!!")) {
+                                                        window.location.href = 'index.php?del_task=' + id + '';
+                                                        return true;
+                                                    }
+                                                }
+                                            </script>
                                         </div>
                                     </div>
                                 </td>
