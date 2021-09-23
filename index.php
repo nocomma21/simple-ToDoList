@@ -107,9 +107,9 @@ $task3 = mysqli_query($conn, "SELECT * FROM tasks WHERE task_ke = 3");
                                                 <button class='btn btn-sm btn-danger' name="del_task" onclick="return deleteToDo(<?php echo $row['id']; ?>)" type="button" value="del_task"><i class='fa fa-trash'></i> Delete </button>
                                             </form>
                                             <script lang="javascript">
-                                                function deleteToDo(gini) {
+                                                function deleteToDo(id) {
                                                     if (confirm("do you want to detele ?")) {
-                                                        window.location.href = 'index.php?del_task=' + gini + '';
+                                                        window.location.href = 'index.php?del_task=' + id + '';
                                                         return true;
                                                     }
                                                 }
