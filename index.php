@@ -80,16 +80,17 @@ $task3 = mysqli_query($conn, "SELECT * FROM tasks WHERE task_ke = 3");
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" href="style.css">
+    <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
 </head>
 
 <body>
-    <div class="container mt-3 bg-primary">
-        <h2>Task List</h2>
+    <div class="container con1 mt-3">
+        <h2 class="outset">Task List</h2>
     </div>
-    <div class="container mt-3 px-3">
+    <div class="container con2 mt-3 px-3">
         <div class="row">
             <div class="col">
                 <form action="index.php" method="post">
@@ -97,7 +98,7 @@ $task3 = mysqli_query($conn, "SELECT * FROM tasks WHERE task_ke = 3");
                         <input type="text" class="form-control" name="task" placeholder="Type To Do" required>
                         <input type="hidden" name="task_ke" value="1">
                         <span class="input-group-text" id="basic-addon2">
-                            <button class="btn btn-primary" name="addTask1" type="submit"><i class='fa fa-plus'></i> Add To Do </button>
+                            <button class="btn btnAddTo" name="addTask1" type="submit"><i class='fa fa-plus'></i> Add To Do </button>
                         </span>
                     </div>
                 </form>
@@ -117,12 +118,12 @@ $task3 = mysqli_query($conn, "SELECT * FROM tasks WHERE task_ke = 3");
                                     <div class="row">
                                         <div class='col d-flex justify-content-center'>
                                             <form action="index.php" method="POST">
-                                                <button class="btn btn-sm btn-light" name="go_doing" value="<?php echo $row['id']; ?>" type="submit"><i class='fa fa-arrow-right'></i> Go Doing </button>
+                                                <button class="btn btnGo btn-sm" name="go_doing" value="<?php echo $row['id']; ?>" type="submit"><i class='fa fa-arrow-right'></i> Go Doing </button>
                                             </form>
                                         </div>
                                         <div class='col d-flex justify-content-center'>
                                             <form action="" method="GET">
-                                                <button class='btn btn-sm btn-danger' name="del_task" onclick="return deleteToDo(<?php echo $row['id']; ?>)" type="button" value="del_task"><i class='fa fa-trash'></i> Delete </button>
+                                                <button class='btn btnDel btn-sm' name="del_task" onclick="return deleteToDo(<?php echo $row['id']; ?>)" type="button" value="del_task"><i class='fa fa-trash'></i> Delete </button>
                                             </form>
                                             <script lang="javascript">
                                                 function deleteToDo(id) {
@@ -147,7 +148,7 @@ $task3 = mysqli_query($conn, "SELECT * FROM tasks WHERE task_ke = 3");
                         <input type="text" class="form-control" name="task" placeholder="Type Doing" required>
                         <input type="hidden" name="task_ke" value="2">
                         <span class="input-group-text" id="basic-addon2">
-                            <button class="btn btn-primary" name="addTask2" type="submit"><i class='fa fa-plus'></i> Add Doing </button>
+                            <button class="btn btnAddTo" name="addTask2" type="submit"><i class='fa fa-plus'></i> Add Doing </button>
                         </span>
                     </div>
                 </form>
@@ -167,12 +168,12 @@ $task3 = mysqli_query($conn, "SELECT * FROM tasks WHERE task_ke = 3");
                                     <div class="row">
                                         <div class='col d-flex justify-content-center'>
                                             <form action="index.php" method="POST">
-                                                <button class="btn btn-sm btn-light" name="go_done" value="<?php echo $row['id']; ?>" type="submit"><i class='fa fa-arrow-right'></i> Go Done </button>
+                                                <button class="btn btnGo btn-sm" name="go_done" value="<?php echo $row['id']; ?>" type="submit"><i class='fa fa-arrow-right'></i> Go Done </button>
                                             </form>
                                         </div>
                                         <div class='col d-flex justify-content-center'>
                                             <form action="" method="GET">
-                                                <button class='btn btn-sm btn-danger' name="del_task" onclick="return deleteDoing(<?php echo $row['id']; ?>)" type="button" value="del_task"><i class='fa fa-trash'></i> Delete </button>
+                                                <button class='btn btnDel btn-sm' name="del_task" onclick="return deleteDoing(<?php echo $row['id']; ?>)" type="button" value="del_task"><i class='fa fa-trash' style="color: white"></i> Delete </button>
                                             </form>
                                             <script lang="javascript">
                                                 function deleteDoing(id) {
@@ -197,7 +198,7 @@ $task3 = mysqli_query($conn, "SELECT * FROM tasks WHERE task_ke = 3");
                         <input type="text" class="form-control" name="task" placeholder="Type Done" required>
                         <input type="hidden" name="task_ke" value="3">
                         <span class="input-group-text" id="basic-addon2">
-                            <button class="btn btn-primary" name="addTask3" type="submit"><i class='fa fa-plus'></i> Add Done </button>
+                            <button class="btn btnAddTo" name="addTask3" type="submit"><i class='fa fa-plus'></i> Add Done </button>
                         </span>
                     </div>
                 </form>
@@ -217,7 +218,7 @@ $task3 = mysqli_query($conn, "SELECT * FROM tasks WHERE task_ke = 3");
                                     <div class="row">
                                         <div class='col d-flex justify-content-center'>
                                             <form action="" method="GET">
-                                                <button class='btn btn-sm btn-light' name="del_task" onclick="return deleteDoneTask(<?php echo $row['id']; ?>)" type="button" value="del_task"><i class='fa fa-check'></i> Done </button>
+                                                <button class='btn btnGo btn-sm' name="del_task" onclick="return deleteDoneTask(<?php echo $row['id']; ?>)" type="button" value="del_task"><i class='fa fa-check'></i> Done </button>
                                             </form>
                                             <script lang="javascript">
                                                 function deleteDoneTask(id) {

@@ -1,0 +1,42 @@
+h2 {
+    width: 200px;
+    height: 70px;
+    color: dimgrey;
+    background-color: lightgoldenrodyellow;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    padding-top: 10px;
+    box-shadow: 5px 5px rgb(165, 165, 137);
+}
+
+h2.outset {
+    border-style: outset;
+    border-color: rgb(165, 165, 137);
+}
+
+.con2 {
+    padding-top: 20px;
+}
+
+.btnAddTo {
+    background-color: lightgoldenrodyellow;
+}
+
+.input-group-text {
+    background-color: rgb(165, 165, 137);
+}
+
+.btnGo {
+    background-color: lightgoldenrodyellow;
+}
+
+.btnDel {
+    background-color: brown;
+    color: white;
+}
+
+.btnDel:hover {
+    color: white;
+}
