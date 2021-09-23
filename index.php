@@ -97,7 +97,7 @@ $task3 = mysqli_query($conn, "SELECT * FROM tasks WHERE task_ke = 3");
                         <input type="text" class="form-control" name="task" placeholder="Type To Do" required>
                         <input type="hidden" name="task_ke" value="1">
                         <span class="input-group-text" id="basic-addon2">
-                            <button class="btn btn-primary" name="addTask1" type="submit">Add To Do</button>
+                            <button class="btn btn-primary" name="addTask1" type="submit"><i class='fa fa-plus'></i> Add To Do </button>
                         </span>
                     </div>
                 </form>
@@ -147,7 +147,7 @@ $task3 = mysqli_query($conn, "SELECT * FROM tasks WHERE task_ke = 3");
                         <input type="text" class="form-control" name="task" placeholder="Type Doing" required>
                         <input type="hidden" name="task_ke" value="2">
                         <span class="input-group-text" id="basic-addon2">
-                            <button class="btn btn-primary" name="addTask2" type="submit">Add Doing</button>
+                            <button class="btn btn-primary" name="addTask2" type="submit"><i class='fa fa-plus'></i> Add Doing </button>
                         </span>
                     </div>
                 </form>
@@ -197,7 +197,7 @@ $task3 = mysqli_query($conn, "SELECT * FROM tasks WHERE task_ke = 3");
                         <input type="text" class="form-control" name="task" placeholder="Type Done" required>
                         <input type="hidden" name="task_ke" value="3">
                         <span class="input-group-text" id="basic-addon2">
-                            <button class="btn btn-primary" name="addTask3" type="submit">Add Done</button>
+                            <button class="btn btn-primary" name="addTask3" type="submit"><i class='fa fa-plus'></i> Add Done </button>
                         </span>
                     </div>
                 </form>
@@ -221,7 +221,7 @@ $task3 = mysqli_query($conn, "SELECT * FROM tasks WHERE task_ke = 3");
                                             </form>
                                             <script lang="javascript">
                                                 function deleteDoneTask(id) {
-                                                    if (confirm("Wow you done it !!!")) {
+                                                    if (confirm("Wow you done it, do you wanna delete it?")) {
                                                         window.location.href = 'index.php?del_task=' + id + '';
                                                         return true;
                                                     }
